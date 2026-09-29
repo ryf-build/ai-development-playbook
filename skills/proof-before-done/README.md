@@ -1,11 +1,30 @@
 # Proof Before Done
 
-AIや開発者が「実装完了」「merge可能」「production-ready」と主張したとき、その自己申告だけで完了扱いせず、実際のRepository状態・Acceptance Criteria・実行Evidenceを照合するためのSkillです。
+`proof-before-done` は、AIや開発者の「実装完了」「merge可能」「production-ready」という自己申告を、そのまま完了証拠にしないためのVerification Skillです。
+
+## Version
+
+`1.0.0`
 
 ## Core principle
 
 ```text
 CLAIM != EVIDENCE
+```
+
+## What it does
+
+1. 完了主張（Completion Claim）を検証可能な単位へ分ける
+2. 実際のRepository状態とDiffを見る
+3. Repository自身が定義しているtest / lint / build等から必要なGateを選ぶ
+4. ClaimごとにEvidenceを対応づける
+5. 未確認を推測で埋めず、4つのStatusで返す
+
+```text
+PASS
+PASS_WITH_RISK
+BLOCKED
+NOT_VERIFIED
 ```
 
 ## Default safety
@@ -20,20 +39,24 @@ CLAIM != EVIDENCE
 - `scripts/repo_snapshot.py` — Git Repositoryのread-only snapshot
 - `assets/report-template.md` — Report Template
 - `agents/openai.yaml` — ChatGPT向けUI metadata
+- `VERSION` — 配布Version
+- `LICENSE` — MIT License
 
-## Install
+## Review before install
 
-GitHub CLIのAgent Skills対応環境では、次のようにインストールできます。
-
-```bash
-gh skill install ryf-build/ai-development-playbook proof-before-done
-```
-
-インストール前に必ず内容を確認してください。
+外部Skillは、インストール前に必ず中身を確認してください。
 
 ```bash
 gh skill preview ryf-build/ai-development-playbook proof-before-done
 ```
+
+Bookでは、検証済みCommit SHAへPinして導入する方法を推奨しています。
+
+```bash
+gh skill install ryf-build/ai-development-playbook proof-before-done --pin <reviewed-commit-sha>
+```
+
+`main`を無条件に追従するのではなく、ReviewしたVersionと実行Versionを一致させるためです。
 
 ## Repository snapshot
 
@@ -45,17 +68,15 @@ python path/to/proof-before-done/scripts/repo_snapshot.py
 
 このScript自身はbuild、test、install、migration、deployを実行しません。
 
-## Status
+## Companion labs
 
-最終状態は次の4つです。
+このSkillを題材にした再現可能なLabも同じRepositoryで公開します。
 
-- `PASS`
-- `PASS_WITH_RISK`
-- `BLOCKED`
-- `NOT_VERIFIED`
+```text
+examples/eval-kit/
+examples/final-lab/
+examples/final-lab-oracle/
+examples/reference-experiment/
+```
 
-不十分なEvidenceを推測で埋めて`PASS`へ寄せないことを重視しています。
-
-## Book
-
-Zenn Book『AIは毎回違う。だからSkillを書く。』の読者特典として公開しています。
+Book: **『AIは毎回違う。だからSkillを書く。』**
