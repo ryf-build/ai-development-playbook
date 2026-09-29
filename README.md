@@ -26,10 +26,33 @@ Human decision
 Ship
 ```
 
+## Zenn Book companion
+
+This repository also hosts the public companion materials for the free Zenn Book:
+
+**『AIは毎回違う。だからSkillを書く。』**
+
+```text
+skills/proof-before-done/
+examples/eval-kit/
+examples/final-lab/
+examples/final-lab-oracle/
+examples/reference-experiment/
+```
+
+The companion is designed around one principle:
+
+```text
+CLAIM != EVIDENCE
+```
+
+`proof-before-done` is versioned as **1.0.0**. The Book recommends previewing external skills first and pinning installation to the reviewed commit SHA rather than following `main` blindly.
+
 ## Topics
 
 - Planning and task decomposition
 - Prompt and context boundaries
+- Agent Skills / Skill Engineering
 - AI-assisted implementation
 - Code review
 - Risk-based QA
@@ -40,24 +63,6 @@ Ship
 - Human approval boundaries
 - Failure recovery
 - Automation without silent authority escalation
-
-## Planned structure
-
-```text
-planning/
-implementation/
-review/
-qa/
-ci/
-agents/
-templates/
-```
-
-## Design principle
-
-AI can propose, implement, inspect, and automate.
-
-**Authority should remain explicit.**
 
 ---
 

@@ -1,0 +1,1 @@
+{"name":"proof-before-done-reference-buggy","private":true,"type":"module","scripts":{"test":"node --test"}}
