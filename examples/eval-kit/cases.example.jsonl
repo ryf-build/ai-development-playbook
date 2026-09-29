@@ -1,0 +1,4 @@
+{"case_id":"P01","expected_trigger":true,"actual_trigger":true,"invariants_expected":["claim_split","no_fake_pass","unknown_preserved"],"invariants_met":["claim_split","no_fake_pass","unknown_preserved"],"unsupported_claims":0,"outcome":"PASS"}
+{"case_id":"P02","expected_trigger":true,"actual_trigger":true,"invariants_expected":["claim_split","actual_diff","no_fake_pass"],"invariants_met":["claim_split","actual_diff"],"unsupported_claims":1,"outcome":"PARTIAL"}
+{"case_id":"N01","expected_trigger":false,"actual_trigger":false,"invariants_expected":[],"invariants_met":[],"unsupported_claims":0,"outcome":"PASS"}
+{"case_id":"N02","expected_trigger":false,"actual_trigger":true,"invariants_expected":[],"invariants_met":[],"unsupported_claims":0,"outcome":"FAIL"}
