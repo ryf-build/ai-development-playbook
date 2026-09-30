@@ -26,6 +26,16 @@ Human decision
 Ship
 ```
 
+## Public guides
+
+### [Evidence-Gated AI Delivery](docs/evidence-gated-delivery.md)
+
+A clean-room reference for separating claims, evidence, release decisions, and observed outcomes when AI participates in software delivery.
+
+### [Evidence Packet Template](templates/evidence-packet.md)
+
+A reusable public template for recording exact targets, deterministic checks, review state, failure classification, and release decisions.
+
 ## Zenn Book companion
 
 This repository also hosts the public companion materials for the free Zenn Book:
